@@ -66,211 +66,7 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-<style>
-body {
-  font-family: Verdana, sans-serif;
-  margin: 0;
-}
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  overflow: clip;
-  overflow-clip-margin: 20px;
-}
 
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-}
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.column {
-  flex-basis: 50%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.square-image {
-  position: relative;
-  padding-top: 100%;
-}
-
-.square-image img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  width: 100%;
-  max-width: 1200px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.modal-content img {
-  max-height: 90vh;
-  max-width: 90%; 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
-@media only screen and (max-width: 600px) {
-  .column {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .modal-content {
-    width: 100%;
-    max-width: 600px;
-    bottom: 15%;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1200px) {
-  .column {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  .modal-content {
-    width: 100%;
-    max-width: 800px;
-    bottom: 15%;
-  }
-}
-
-@media only screen and (min-width: 1025px) {
-  .modal-content {
-    width: 100%;
-    max-width: 1200px;
-    bottom: 20%;
-  }
-}
-
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-.prev,
-.next {
-  display: block;
-  cursor: pointer;
-  position: relative;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  user-select: none;
-  -webkit-user-select: none;
-  z-index: 9999;
-}
-
-.prev {
-  right: 20px;
-  border-radius: 3px 0 0 3px;
-}
-
-.next {
-  left: 20px;
-  border-radius: 0 3px 3px 0;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-img {
-  margin-bottom: -4px;
-}
-
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.3s;
-}
-.mySlides {
-  display: none;
-}
-
-.mySlides:hover .prev,
-.mySlides:hover .next {
-  display: block;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-</style>
 	</head>
 	<body>
 	<div class="fh5co-fulll" id="fh5co-full" >
@@ -489,8 +285,8 @@ img.hover-shadow {
 					</div>
 				</div>
 				<div class="row row-bottom-padded-md">
-					<div class="container">
-					<div class="row">
+					<div class="containerr">
+					<div class="rowGallery">
 					  <div class="column">
 						<div class="square-image">
 						  <img src="images/gallery-1.webp" alt="" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
@@ -502,7 +298,7 @@ img.hover-shadow {
 						</div>
 					  </div>
 					</div>
-					<div class="row">
+					<div class="rowGallery">
 					  <div class="column">
 						<div class="square-image">
 						  <img src="images/gallery-3.webp" alt="" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
@@ -516,7 +312,7 @@ img.hover-shadow {
 					</div>
 					</div>
 					<div id="myModal" class="modal">
-					<div class="container">
+					<div class="containerr">
 					  <div class="modal-content">
 						<span class="close cursor" onclick="closeModal()">&times;</span>
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
