@@ -289,8 +289,8 @@
 					<div class="rowGallery">
 					  <div class="column">
 						<div class="square-image">
-						  <img src="images/gallery-1.webp" alt="" title="Đám Hỏi" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-						  <div class="textImg">Đám Hỏi<br> xx Ảnh</div>
+						  <img src="images/image_dh0.webp" alt="" title="Đám Hỏi" onclick="openModalWithImages('dh')" class="hover-shadow cursor">
+						  <div class="textImg">Đám Hỏi<br> 40 Ảnh</div>
 						</div>
 					  </div>
 					  <div class="column">
@@ -321,30 +321,14 @@
 						<span class="close cursor" onclick="closeModal()">&times;</span>
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-						<div class="mySlides">
-						  <div class="numbertext">1 / 4</div>
-						  <img class="demo cursor" src="images/gallery-1.webp" onclick="currentSlide(1)" alt="">
+						<div class="slides-container">
+						<!-- Placeholder for dynamic slides -->
 						</div>
-
-						<div class="mySlides">
-						  <div class="numbertext">2 / 4</div>
-						  <img class="demo cursor" src="images/gallery-2.webp" onclick="currentSlide(2)" alt="">
-						</div>
-
-						<div class="mySlides">
-						  <div class="numbertext">3 / 4</div>
-						  <img class="demo cursor" src="images/gallery-3.webp" onclick="currentSlide(3)" alt="">
-						</div>
-						
-						<div class="mySlides">
-						  <div class="numbertext">4 / 4</div>
-						  <img class="demo cursor" src="images/gallery-4.webp" onclick="currentSlide(4)" alt="">
-						</div>
-					  </div>
 					</div>
 					</div>	
 				</div>
 			</div>
+		</div>
 	</div>
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
@@ -469,44 +453,128 @@
 	}
 	</script>
 	<script>
-	function openModal() {
-	  document.getElementById("myModal").style.display = "block";
-	  document.getElementsByTagName("body")[0].style.overflow = "hidden";
-	}
+    // JavaScript code
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+      document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    }
 
-	function closeModal() {
-	  document.getElementById("myModal").style.display = "none";
-	  document.getElementsByTagName("body")[0].style.overflow = "auto";
-	}
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+      document.getElementsByTagName("body")[0].style.overflow = "auto";
+    }
 
-	var slideIndex = 1;
-	showSlides(slideIndex);
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-	function plusSlides(n) {
-	  showSlides(slideIndex += n);
-	}
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
 
-	function currentSlide(n) {
-	  showSlides(slideIndex = n);
-	}
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
 
-	function showSlides(n) {
-	  var i;
-	  var slides = document.getElementsByClassName("mySlides");
-	  var dots = document.getElementsByClassName("demo");
-	  var captionText = document.getElementById("caption");
-	  if (n > slides.length) {slideIndex = 1}
-	  if (n < 1) {slideIndex = slides.length}
-	  for (i = 0; i < slides.length; i++) {
-		  slides[i].style.display = "none";
-	  }
-	  for (i = 0; i < dots.length; i++) {
-		  dots[i].className = dots[i].className.replace(" active", "");
-	  }
-	  slides[slideIndex-1].style.display = "block";
-	  dots[slideIndex-1].className += " active";
-	  captionText.innerHTML = dots[slideIndex-1].alt;
-	}
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+
+    function openModalWithImages(imageType) {
+      var imagePaths = [];
+
+      if (imageType === 'dh') {
+        imagePaths = [
+          "images/dh/image_dh0.webp",
+		  "images/dh/image_dh1.webp",
+		  "images/dh/image_dh2.webp",
+		  "images/dh/image_dh3.webp",
+		  "images/dh/image_dh4.webp",
+		  "images/dh/image_dh5.webp",
+		  "images/dh/image_dh6.webp",
+		  "images/dh/image_dh7.webp",
+		  "images/dh/image_dh8.webp",
+		  "images/dh/image_dh9.webp",
+		  "images/dh/image_dh10.webp",
+		  "images/dh/image_dh11.webp",
+		  "images/dh/image_dh12.webp",
+		  "images/dh/image_dh13.webp",
+		  "images/dh/image_dh14.webp",
+		  "images/dh/image_dh15.webp",
+		  "images/dh/image_dh16.webp",
+		  "images/dh/image_dh17.webp",
+		  "images/dh/image_dh18.webp",
+		  "images/dh/image_dh19.webp",
+		  "images/dh/image_dh20.webp",
+		  "images/dh/image_dh21.webp",
+		  "images/dh/image_dh22.webp",
+		  "images/dh/image_dh23.webp",
+		  "images/dh/image_dh24.webp",
+		  "images/dh/image_dh25.webp",
+		  "images/dh/image_dh26.webp",
+		  "images/dh/image_dh27.webp",
+		  "images/dh/image_dh28.webp",
+		  "images/dh/image_dh29.webp",
+		  "images/dh/image_dh30.webp",
+		  "images/dh/image_dh31.webp",
+		  "images/dh/image_dh32.webp",
+		  "images/dh/image_dh33.webp",
+		  "images/dh/image_dh34.webp",
+		  "images/dh/image_dh35.webp",
+		  "images/dh/image_dh36.webp",
+		  "images/dh/image_dh37.webp",
+		  "images/dh/image_dh38.webp",
+		  "images/dh/image_dh39.webp",
+          // Thêm các đường dẫn ảnh khác vào đây
+        ];
+      } else if (imageType === 'vq') {
+        imagePaths = [
+          "images/gallery-1-1.webp",
+          "images/gallery-1-2.webp",
+          // Thêm các đường dẫn ảnh khác vào đây
+        ];
+      }
+
+      var slidesContainer = document.querySelector(".slides-container");
+      slidesContainer.innerHTML = ""; // Xóa các slide hiện tại
+
+      imagePaths.forEach(function(imagePath, index) {
+        var slideDiv = document.createElement("div");
+        slideDiv.classList.add("mySlides");
+
+        var numberTextDiv = document.createElement("div");
+        numberTextDiv.classList.add("numbertext");
+        numberTextDiv.textContent = (index + 1) + " / " + imagePaths.length;
+
+        var imgElement = document.createElement("img");
+        imgElement.classList.add("demo", "cursor");
+        imgElement.src = imagePath;
+        imgElement.onclick = function() {
+          currentSlide(index + 1);
+        };
+
+        slideDiv.appendChild(numberTextDiv);
+        slideDiv.appendChild(imgElement);
+
+        slidesContainer.appendChild(slideDiv);
+      });
+
+      openModal();
+      showSlides(1);
+    }
 	</script>
     
 	</body>
