@@ -2094,20 +2094,20 @@ body {
   height: 100%;
   overflow: auto;
   background-color: black;
+  padding: 10px;
 }
 
 .modal-content {
-  position: relative;
-  background-color: #40504f;
-  margin: auto;
-  width: 100%;
-  max-width: 1200px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
+	width: auto;
+	max-width: 100%;
+	display: block;
+	height: auto;
+	line-height: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 auto;
+
 }
 
 .modal-content img {
@@ -2120,18 +2120,11 @@ body {
 
 }
 
+
 @media only screen and (max-width: 600px) {
   .column {
     flex-basis: 100%;
     max-width: 100%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .modal-content {
-    width: 100%;
-    max-width: 600px;
-    bottom: 15%;
   }
 }
 
@@ -2142,34 +2135,35 @@ body {
   }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  .modal-content {
-    width: 100%;
-    max-width: 800px;
-    bottom: 15%;
-  }
-}
 
-@media only screen and (min-width: 1025px) {
-  .modal-content {
-    width: 100%;
-    max-width: 1200px;
-    bottom: 20%;
-  }
-}
+
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
 
 .close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 35px;
-  font-weight: bold;
-
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    display: block;
+    outline: none;
+    z-index: 1046;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 44px;
+    line-height: 44px;
+    position: absolute;
+    text-decoration: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    padding: 0 0 5px 5px;
+    font-style: normal;
+    font-size: 28px;
+    font-family: Arial, Baskerville, monospace;
+    color: white;
+    text-align: right;
+    width: 100%;
 }
 
 .cursor {
