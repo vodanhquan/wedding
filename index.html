@@ -323,7 +323,7 @@
 					</div>
 					<div id="myModal" class="modal">
 					  <div class="modal-content">
-					  
+					    <span class="close cursor" onclick="closeModal()">&times;</span>
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 						<div class="slides-container">
@@ -415,8 +415,6 @@
         day: d.getDate(),
         enableUtc: false
     });
-	</script>
-	<script>
 	var track = document.getElementById('track');
 
 	var controlBtn = document.getElementById('play-pause');
@@ -438,9 +436,6 @@
 	controlBtn.className = "play";
 	});
 
-	</script>
-    
-	<script>
     var controlBtn = document.getElementById('play-pause');
     var scrollBtn = document.getElementById('scroll-button');
     scrollBtn.addEventListener('click', scrollFunction);
@@ -451,14 +446,9 @@
         controlBtn.className = "pause";
         document.removeEventListener('click', scrollFunction);
     }
-    </script>
-    
-	<script>
 	function scrollWin() {
         document.getElementById('fh5co-couple').scrollTop -= 10;
 	}
-	</script>
-	<script>
     // JavaScript code
     function openModal() {
       document.getElementById("myModal").style.display = "block";
@@ -618,7 +608,8 @@
 
       openModal();
       showSlides(1);
-    }
+	}
+	
 	</script>
 	</body>
 </html>

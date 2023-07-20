@@ -2121,26 +2121,6 @@ body {
 }
 
 
-@media only screen and (max-width: 600px) {
-  .column {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1200px) {
-  .column {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-}
-
-
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
 
 .close {
     background: transparent;
@@ -2164,6 +2144,8 @@ body {
     color: white;
     text-align: right;
     width: 100%;
+	right: 20px;
+	top: 10%;
 }
 
 .cursor {
@@ -2251,3 +2233,131 @@ img.hover-shadow {
   font-family: 'Work Sans', Arial, sans-serif;
 }
 
+@media only screen and (min-width: 960px) {
+	/* styles for browsers larger than 960px; */
+   .prev {
+   left: 15px;
+   border-radius: 3px 0 0 3px;
+  }
+  .close{
+    top: 50px;
+	right:15px;
+  }
+
+  .next {
+  right: 15px;
+  border-radius: 0 3px 3px 0;
+  }
+}
+@media only screen and (min-width: 1440px) {
+	/* styles for browsers larger than 1440px; */
+	.prev {
+  left: 50px;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .next {
+  right: 50px;
+  border-radius: 0 3px 3px 0;
+  }
+    .close{
+    top: 50px;
+	right: 50px ;
+  }
+
+}
+@media only screen and (min-width: 2000px) {
+	/* for sumo sized (mac) screens */
+  .prev {
+  left: 80px;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .next {
+  right: 80px;
+  border-radius: 0 3px 3px 0;
+  }
+      .close{
+    top: 50px;
+	right: 80px ;
+  }
+}
+@media only screen and (max-device-width: 480px) {
+   /* styles for mobile browsers smaller than 480px; (iPhone) */
+  .column {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .mySlides{
+    padding-left: 3%;
+	padding-right: 3%;
+  }
+  .prev {
+  left: 10px;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .next {
+  right: 10px;
+  border-radius: 0 3px 3px 0;
+  }
+        .close{
+    top: 35%;
+	right: 5% ;
+  }
+   
+}
+@media only screen and (device-width: 768px) {
+   /* default iPad screens */
+  .column {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .prev {
+  left: 40px;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .next {
+  right: 40px;
+  border-radius: 0 3px 3px 0;
+  }
+          .close{
+    top: 50px;
+	right: 40px ;
+  }
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+    .prev {
+  left: 40px;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .next {
+  right: 40px;
+  border-radius: 0 3px 3px 0;
+  }
+   .close{
+    top: 50px;
+	right: 40px ;
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+      .prev {
+  left: 40px;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .next {
+  right: 40px;
+  border-radius: 0 3px 3px 0;
+  }
+              .close{
+    top: 50px;
+	right: 40px ;
+  }
+}
