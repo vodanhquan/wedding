@@ -301,7 +301,7 @@
 					  </div>
 					  <div class="column">
 						<div class="square-image">
-						  <img src="images/gallery-2.webp" alt="" title="Vu Quy" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+						  <img src="images/dh/image_dh5.webp" alt="" title="Vu Quy" onclick="openModalWithImages('dh')" class="hover-shadow cursor">
 						  <div class="textImg">Vu Quy<br> 40 Ảnh</i></div>
 						</div>
 					  </div>
@@ -315,23 +315,21 @@
 					  </div>
 					  <div class="column">
 						<div class="square-image">
-						  <img src="images/gallery-4.webp" alt="" title="Báo Hỷ" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+						  <img src="images/th/image_th5.webp" alt="" title="Báo Hỷ" onclick="openModalWithImages('th')" class="hover-shadow cursor">
 						  <div class="textImg"><i>Báo Hỷ<br> xx Ảnh</i></div>
 						</div>
 					  </div>
 					</div>
 					</div>
 					<div id="myModal" class="modal">
-					  <div class="modal-content">
-					    <span class="close cursor" onclick="closeModal()">&times;</span>
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        
 						<div class="slides-container">
-						
+
 						<!-- Placeholder for dynamic slides -->
 						</div>
-					  
-					</div>	
+						
 				</div>
 			</div>
 		</div>
@@ -465,10 +463,12 @@
 
     function plusSlides(n) {
       showSlides(slideIndex += n);
+	  adjustPosition(); 
     }
 
     function currentSlide(n) {
       showSlides(slideIndex = n);
+	  adjustPosition(); 
     }
 
     function showSlides(n) {
@@ -476,17 +476,20 @@
       var slides = document.getElementsByClassName("mySlides");
       var dots = document.getElementsByClassName("demo");
       var captionText = document.getElementById("caption");
+	   if (slides.length === 0) return; // Kiểm tra xem mảng slides có phần tử không
+       if (dots.length === 0) return; // Kiểm tra xem mảng dots có phần tử không
+  
       if (n > slides.length) { slideIndex = 1; }
       if (n < 1) { slideIndex = slides.length; }
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
+	    for (i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
       slides[slideIndex - 1].style.display = "block";
       dots[slideIndex - 1].className += " active";
-      captionText.innerHTML = dots[slideIndex - 1].alt;
+	  adjustPosition();
     }
 
     function openModalWithImages(imageType) {
@@ -589,27 +592,88 @@
         var slideDiv = document.createElement("div");
         slideDiv.classList.add("mySlides");
 
+		var infoContainer = document.createElement("div");
+		infoContainer.classList.add("info-container");
+	
         var numberTextDiv = document.createElement("div");
         numberTextDiv.classList.add("numbertext");
-        numberTextDiv.textContent = (index + 1) + " / " + imagePaths.length;
-
+        numberTextDiv.textContent = (index + 1) + " of " + imagePaths.length;
+		
+        var closeStyleDiv = document.createElement("span");
+        closeStyleDiv.classList.add("buttons-close");
+		closeStyleDiv.innerHTML = "&times;";
+		closeStyleDiv.onclick = closeModal;
+		
         var imgElement = document.createElement("img");
         imgElement.classList.add("demo", "cursor");
         imgElement.src = imagePath;
         imgElement.onclick = function() {
           currentSlide(index + 1);
         };
-
-        slideDiv.appendChild(numberTextDiv);
+		infoContainer.appendChild(numberTextDiv);
+		infoContainer.appendChild(closeStyleDiv);
+		slideDiv.appendChild(infoContainer);
         slideDiv.appendChild(imgElement);
-
         slidesContainer.appendChild(slideDiv);
+
       });
 
       openModal();
-      showSlides(1);
+      showSlides(slideIndex);
 	}
-	
+
+
+function adjustPosition() {
+  var currentSlide = document.querySelector('.mySlides:not([style*="display: none"])');
+
+  if (currentSlide) {
+    var imgElement = currentSlide.querySelector('img');
+    var numberTextDiv = currentSlide.querySelector('.numbertext');
+	var closeStyleDiv = currentSlide.querySelector('.buttons-close');
+
+    // Kiểm tra xem ảnh đã tải hoàn toàn chưa
+    if (imgElement.complete) {
+      var modalWidth = currentSlide.clientWidth; // Lấy chiều rộng của phần tử mySlides (modal)
+      var modalHeight = currentSlide.clientHeight; // Lấy chiều cao của phần tử mySlides (modal)
+      var imageWidth = imgElement.clientWidth; // Lấy chiều rộng của ảnh
+      var imageHeight = imgElement.clientHeight; // Lấy chiều cao của ảnh
+
+
+	  
+      // Xóa margin cũ
+      numberTextDiv.style.paddingLeft = "";
+      numberTextDiv.style.paddingTop = "";
+	  closeStyleDiv.style.paddingRight = "";
+	  closeStyleDiv.style.paddingTop = "";
+
+      // Đặt vị trí của numberTextDiv (số thứ tự) bên trái
+      var marginLeft = (modalWidth - imageWidth) / 2 + 'px';
+      numberTextDiv.style.paddingLeft = marginLeft;
+
+      // Đặt vị trí của closeStyleDiv (nút đóng) bên phải
+      var marginRight = (modalWidth - imageWidth) / 2 + 'px';
+      closeStyleDiv.style.paddingRight = marginRight;
+	  
+      var marginTopText = (modalHeight - imageHeight - 36) / 2 + 'px';
+      numberTextDiv.style.paddingTop = marginTopText;
+	  
+	  var marginTopClose = (modalHeight - imageHeight - 60) / 2 + 'px';
+      closeStyleDiv.style.paddingTop = marginTopClose;
+	  
+	  
+	  
+	  //var marginBottomClose = (modalHeight - marginTopClose) + 'px';
+	  //closeStyleDiv.style.paddingBottom = marginBottomClose;
+	  
+	  console.log("numberTextDiv.style.paddingLeft", marginLeft); // Lấy chiều rộng của phần tử mySlides (modal)
+      console.log("numberTextDiv.style.paddingTop",marginTopText); // Lấy chiều cao của phần tử mySlides (modal)
+      console.log("closeStyleDiv.style.paddingRight",marginRight); // Lấy chiều rộng của ảnh
+      console.log("closeStyleDiv.style.paddingTop", marginTopClose); // Lấy chiều cao của ảnh
+	 // console.log("closeStyleDiv.style.paddingBottom", marginBottomClose); // Lấy chiều cao của ảnh
+    }
+  }
+}
+
 	</script>
 	</body>
 </html>
