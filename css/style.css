@@ -1960,40 +1960,6 @@ form label {
   cursor: pointer;
 }
 
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-/* Position the "prev button" to the left */
-.prev {
-  left: 0;
-  border-radius: 3px 0 0 3px;
-}
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-
 /* Container for image text */
 .caption-container {
   text-align: center;
@@ -2112,32 +2078,27 @@ body {
   display: block;
   cursor: pointer;
   position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
   color: white;
   font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
+  font-size: 30px;
+  transition: transform 0.3s ease;
   user-select: none;
   -webkit-user-select: none;
   z-index: 9999;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+/* Vị trí nút previous */
 .prev {
-  left: 20px;
+  left: 10px; /* Đặt khoảng cách từ cạnh trái của tấm hình */
   border-radius: 3px 0 0 3px;
 }
 
+/* Vị trí nút next */
 .next {
-  right: 20px;
+  right: 10px; /* Đặt khoảng cách từ cạnh phải của tấm hình */
   border-radius: 0 3px 3px 0;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 img {
@@ -2186,105 +2147,6 @@ img.hover-shadow {
   text-align: left;
   line-height: 1;
   font-family: 'Work Sans', Arial, sans-serif;
-}
-
-@media only screen and (min-width: 960px) {
-	/* styles for browsers larger than 960px; */
-   .prev {
-   left: 15px;
-   border-radius: 3px 0 0 3px;
-  }
-  .next {
-  right: 15px;
-  border-radius: 0 3px 3px 0;
-  }
-}
-@media only screen and (min-width: 1440px) {
-	/* styles for browsers larger than 1440px; */
-	.prev {
-  left: 50px;
-  border-radius: 3px 0 0 3px;
-  }
-
-  .next {
-  right: 50px;
-  border-radius: 0 3px 3px 0;
-  }
-
-}
-@media only screen and (min-width: 2000px) {
-	/* for sumo sized (mac) screens */
-  .prev {
-  left: 80px;
-  border-radius: 3px 0 0 3px;
-  }
-
-  .next {
-  right: 80px;
-  border-radius: 0 3px 3px 0;
-  }
-}
-@media only screen and (max-device-width: 480px) {
-   /* styles for mobile browsers smaller than 480px; (iPhone) */
-  .column {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-  .prev {
-  left: 10px;
-  border-radius: 3px 0 0 3px;
-  }
-
-  .next {
-  right: 10px;
-  border-radius: 0 3px 3px 0;
-  }
-   
-}
-@media only screen and (device-width: 768px) {
-   /* default iPad screens */
-  .column {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-  .prev {
-  left: 40px;
-  border-radius: 3px 0 0 3px;
-  }
-
-  .next {
-  right: 40px;
-  border-radius: 0 3px 3px 0;
-  }
-
-}
-/* different techniques for iPad screening */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* For portrait layouts only */
-    .prev {
-  left: 40px;
-  border-radius: 3px 0 0 3px;
-  }
-
-  .next {
-  right: 40px;
-  border-radius: 0 3px 3px 0;
-  }
-
-}
-
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* For landscape layouts only */
-      .prev {
-  left: 40px;
-  border-radius: 3px 0 0 3px;
-  }
-
-  .next {
-  right: 40px;
-  border-radius: 0 3px 3px 0;
-  }
-
 }
 
 .numbertext {

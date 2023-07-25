@@ -322,15 +322,8 @@
 					</div>
 					</div>
 					<div id="myModal" class="modal">
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-                        
-						<div class="slides-container">
-
-						<!-- Placeholder for dynamic slides -->
-						</div>
-						
-				</div>
+					 <div class="slides-container"></div>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -463,12 +456,12 @@
 
     function plusSlides(n) {
       showSlides(slideIndex += n);
-	  adjustPosition(); 
+	  //adjustPosition(); 
     }
 
     function currentSlide(n) {
       showSlides(slideIndex = n);
-	  adjustPosition(); 
+	  //adjustPosition(); 
     }
 
     function showSlides(n) {
@@ -604,14 +597,31 @@
 		closeStyleDiv.innerHTML = "&times;";
 		closeStyleDiv.onclick = closeModal;
 		
+		var prevButton = document.createElement("a");
+        prevButton.classList.add("prev");
+		prevButton.innerHTML = "&#10094;";
+		prevButton.style.display = "block";
+		prevButton.onclick = () => plusSlides(-1);
+		
+        var nextButton = document.createElement("a");
+        nextButton.classList.add("next");
+		nextButton.innerHTML = "&#10095;";
+		nextButton.style.display = "block";
+		nextButton.onclick = () => plusSlides(1);
+		
         var imgElement = document.createElement("img");
         imgElement.classList.add("demo", "cursor");
         imgElement.src = imagePath;
+		  imgElement.onload = function() {
+			adjustPosition(); // Gọi hàm adjustPosition() sau khi ảnh đã tải hoàn tất
+		};
         imgElement.onclick = function() {
           currentSlide(index + 1);
         };
 		infoContainer.appendChild(numberTextDiv);
 		infoContainer.appendChild(closeStyleDiv);
+		infoContainer.appendChild(prevButton);
+		infoContainer.appendChild(nextButton);
 		slideDiv.appendChild(infoContainer);
         slideDiv.appendChild(imgElement);
         slidesContainer.appendChild(slideDiv);
@@ -630,6 +640,8 @@ function adjustPosition() {
     var imgElement = currentSlide.querySelector('img');
     var numberTextDiv = currentSlide.querySelector('.numbertext');
 	var closeStyleDiv = currentSlide.querySelector('.buttons-close');
+	var prevDiv = currentSlide.querySelector('.prev');
+	var nextDiv = currentSlide.querySelector('.next');
 
     // Kiểm tra xem ảnh đã tải hoàn toàn chưa
     if (imgElement.complete) {
@@ -639,12 +651,15 @@ function adjustPosition() {
       var imageHeight = imgElement.clientHeight; // Lấy chiều cao của ảnh
 
 
-	  
       // Xóa margin cũ
       numberTextDiv.style.paddingLeft = "";
       numberTextDiv.style.paddingTop = "";
 	  closeStyleDiv.style.paddingRight = "";
 	  closeStyleDiv.style.paddingTop = "";
+	  prevDiv.style.left = "";
+	  nextDiv.style.right = "";
+	  prevDiv.style.marginTop = "";
+	  nextDiv.style.marginTop = "";
 
       // Đặt vị trí của numberTextDiv (số thứ tự) bên trái
       var marginLeft = (modalWidth - imageWidth) / 2 + 'px';
@@ -661,15 +676,13 @@ function adjustPosition() {
       closeStyleDiv.style.paddingTop = marginTopClose;
 	  
 	  
+	  var posstionPN = (modalWidth - imageWidth) / 2 + 'px';
+	  prevDiv.style.left = posstionPN;
+	  nextDiv.style.right = posstionPN;
 	  
-	  //var marginBottomClose = (modalHeight - marginTopClose) + 'px';
-	  //closeStyleDiv.style.paddingBottom = marginBottomClose;
-	  
-	  console.log("numberTextDiv.style.paddingLeft", marginLeft); // Lấy chiều rộng của phần tử mySlides (modal)
-      console.log("numberTextDiv.style.paddingTop",marginTopText); // Lấy chiều cao của phần tử mySlides (modal)
-      console.log("closeStyleDiv.style.paddingRight",marginRight); // Lấy chiều rộng của ảnh
-      console.log("closeStyleDiv.style.paddingTop", marginTopClose); // Lấy chiều cao của ảnh
-	 // console.log("closeStyleDiv.style.paddingBottom", marginBottomClose); // Lấy chiều cao của ảnh
+	  var marginPN = modalHeight / 2 + 'px';
+	  prevDiv.style.marginTop = marginPN;
+	  nextDiv.style.marginTop = marginPN;
     }
   }
 }
