@@ -301,8 +301,8 @@
 					  </div>
 					  <div class="column">
 						<div class="square-image">
-						  <img src="images/dh/image_dh5.webp" alt="" title="Vu Quy" onclick="openModalWithImages('dh')" class="hover-shadow cursor">
-						  <div class="textImg">Vu Quy<br> 40 Ảnh</i></div>
+						  <img src="images/vq/image_vq0.webp" alt="" title="Vu Quy" onclick="openModalWithImages('vq')" class="hover-shadow cursor">
+						  <div class="textImg"><i>Vu Quy<br> 35 Ảnh</i></div>
 						</div>
 					  </div>
 					</div>
@@ -382,7 +382,6 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
 
-	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
 	<script src="js/simplyCountdown.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
@@ -413,11 +412,9 @@
 	function playPause() {
 	if (track.paused) {
 		track.play();
-		//controlBtn.textContent = "Pause";
 		controlBtn.className = "pause";
 	} else { 
 		track.pause();
-		 //controlBtn.textContent = "Play";
 		controlBtn.className = "play";
 	}
 	}
@@ -456,12 +453,10 @@
 
     function plusSlides(n) {
       showSlides(slideIndex += n);
-	  //adjustPosition(); 
     }
 
     function currentSlide(n) {
       showSlides(slideIndex = n);
-	  //adjustPosition(); 
     }
 
     function showSlides(n) {
@@ -576,8 +571,48 @@
 		  "images/th/image_th39.webp",
           // Thêm các đường dẫn ảnh khác vào đây
         ];
-      }
-
+		} else if (imageType === 'vq') {
+        imagePaths = [
+          "images/vq/image_vq0.webp",
+		  "images/vq/image_vq1.webp",
+		  "images/vq/image_vq2.webp",
+		  "images/vq/image_vq3.webp",
+		  "images/vq/image_vq4.webp",
+		  "images/vq/image_vq5.webp",
+		  "images/vq/image_vq6.webp",
+		  "images/vq/image_vq7.webp",
+		  "images/vq/image_vq8.webp",
+		  "images/vq/image_vq9.webp",
+		  "images/vq/image_vq10.webp",
+		  "images/vq/image_vq11.webp",
+		  "images/vq/image_vq12.webp",
+		  "images/vq/image_vq13.webp",
+		  "images/vq/image_vq14.webp",
+		  "images/vq/image_vq15.webp",
+		  "images/vq/image_vq16.webp",
+		  "images/vq/image_vq17.webp",
+		  "images/vq/image_vq18.webp",
+		  "images/vq/image_vq19.webp",
+		  "images/vq/image_vq20.webp",
+		  "images/vq/image_vq21.webp",
+		  "images/vq/image_vq22.webp",
+		  "images/vq/image_vq23.webp",
+		  "images/vq/image_vq24.webp",
+		  "images/vq/image_vq25.webp",
+		  "images/vq/image_vq26.webp",
+		  "images/vq/image_vq27.webp",
+		  "images/vq/image_vq28.webp",
+		  "images/vq/image_vq29.webp",
+		  "images/vq/image_vq30.webp",
+		  "images/vq/image_vq31.webp",
+		  "images/vq/image_vq32.webp",
+		  "images/vq/image_vq33.webp",
+		  "images/vq/image_vq34.webp",
+		  "images/vq/image_vq35.webp"
+		  
+          // Thêm các đường dẫn ảnh khác vào đây
+        ];		
+		}
       var slidesContainer = document.querySelector(".slides-container");
       slidesContainer.innerHTML = ""; // Xóa các slide hiện tại
 
