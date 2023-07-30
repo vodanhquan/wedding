@@ -39,45 +39,45 @@
 
 	</head>
 	<body>
-	<div id="preloader" style="display: none;">
-        <div class="loading-heart">
-            <svg viewBox="0 0 512 512" width="100">
-                <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
-            </svg>
-            <div class="preloader-title">
-                Q<br>
-                <small>&amp;</small><br>
-                D
-            </div>
-        </div>
-	</div>
-	<div class="fh5co-fulll" id="fh5co-full" >
-		<header id="fh5co-header" class="fh5co-cover fh5co-full" role="banner" style="background-image:url(images/background.webp);data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="fh5co-container container">
-				<div class="row css-nhan">
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<img src="images/nhan.png">
-						<h1>The Wedding of</h1>
-						<h2>Quân &amp; Diễn</h2>
-						<h3>We Are Getting Married</h3>
-					</div>
-				</div>
-			
-                <div class= "css-mwmrgg">
+      <!-- Preloader -->
+    <div id="preloader" style="display: block;">
+		<div class="heart"></div>
+		<div class="text">
+			<p>Danh Quân ❤️ Ngọc Diễn</p>
+		</div>
+    </div>
+
+    <!-- Nội dung chính của trang -->
+    <div class="fh5co-fulll" id="fh5co-full"  style="display: none">
+        <div id="fh5co-header" class="fh5co-cover fh5co-full" role="banner" style="background-image:url(images/background.webp);" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="fh5co-container container">
+                <!-- Phần tử con của fh5co-header -->
+                <div class="row css-nhan">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <img src="images/nhan.png" alt="Nhan">
+                        <h1>The Wedding of</h1>
+                        <h2>Quân &amp; Diễn</h2>
+                        <h3>We Are Getting Married</h3>
+                    </div>
+                </div>
+            
+                <div class="css-mwmrgg">
                     <section id="scroll" class="scroll__icon">
-                        <a href='#fh5co-couple'><div class="button">
-                            <span id="scroll-button" ></span></div></a>
-                        <div>
+                        <a href='#fh5co-couple'>
+                            <div class="button">
+                                <span id="scroll-button"></span>
+                            </div>
+                        </a>
+                        <!-- Đưa phần tử span vào trong một phần tử con riêng -->
+                        <div class="text-container">
                             <span class="text">Cuộn xuống để xem tiếp nè!</span>
                         </div>
-
                     </section>
                 </div>
-
-			</div>
-	</header>
-	</div>
+            </div>
+        </div>
+    </div>
 	<div id="fh5co-couple">
 		<div class="container">
 			<div class="row">
@@ -367,7 +367,7 @@
 	  <source src="mp3/NgayDauTien.mp3" type="audio/mpeg" />
 	</audio>
 
-	<div id="player-container">
+	<div id="player-container" style="display: none;">
 	  <div id="play-pause" class="play">Play</div>
 	</div>
 
@@ -733,7 +733,12 @@ function adjustPosition() {
     }
   }
 }
-
+        // Ẩn preloader khi tất cả tài nguyên trên trang đã tải hoàn toàn
+        window.addEventListener("load", function() {
+            document.getElementById("preloader").style.display = "none";
+			document.getElementById("fh5co-full").style.display = "block";
+			document.getElementById("player-container").style.display = "block";
+        });
 	</script>
 	</body>
 </html>
