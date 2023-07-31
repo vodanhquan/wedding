@@ -39,8 +39,20 @@
 
 	</head>
 	<body>
-	<div class="fh5co-fulll" id="fh5co-full" >
-		<header id="fh5co-header" class="fh5co-cover fh5co-full" role="banner" style="background-image:url(images/background.webp);data-stellar-background-ratio="0.5">
+	<div id="preloader" style="display: block">
+        <div class="loading-heart">
+            <svg viewBox="0 0 520 520" width="100">
+                <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
+            </svg>
+            <div class="preloader-title">
+                Q<br>
+                <small>&amp;</small><br>
+                D
+            </div>
+        </div>
+    </div>
+	<div id="fh5co-full" class="fh5co-fulll" style="display: none">
+		<div id="fh5co-header" class="fh5co-cover fh5co-full" role="banner" style="background-image:url(images/background.webp)"; data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="fh5co-container container">
 				<div class="row css-nhan">
@@ -64,7 +76,7 @@
                 </div>
 
 			</div>
-	</header>
+	</div>
 	</div>
 	<div id="fh5co-couple">
 		<div class="container">
@@ -718,9 +730,19 @@ function adjustPosition() {
 	  var marginPN = modalHeight / 2 + 'px';
 	  prevDiv.style.marginTop = marginPN;
 	  nextDiv.style.marginTop = marginPN;
+	  
     }
   }
 }
+
+		// Ẩn preloader khi tất cả tài nguyên trên trang đã tải hoàn toàn
+        window.addEventListener("load", function() {
+            document.getElementById("preloader").style.display = "none";
+			document.getElementById("fh5co-full").style.display = "block";
+        });
+		setTimeout(function() {
+		  document.getElementById('preloader').style.display = 'none';
+		}, 3000); // Hiển thị preload trong 15 giây trước khi tự động ẩn
 
 	</script>
 	</body>
