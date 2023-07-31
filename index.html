@@ -614,7 +614,7 @@
         ];		
 		}
       var slidesContainer = document.querySelector(".slides-container");
-      slidesContainer.innerHTML = ""; // Xóa các slide hiện tại
+      slidesContainer.innerHTML = "";
 
       imagePaths.forEach(function(imagePath, index) {
         var slideDiv = document.createElement("div");
@@ -648,7 +648,7 @@
         imgElement.classList.add("demo", "cursor");
         imgElement.src = imagePath;
 		  imgElement.onload = function() {
-			adjustPosition(); // Gọi hàm adjustPosition() sau khi ảnh đã tải hoàn tất
+			adjustPosition(); 
 		};
         imgElement.onclick = function() {
           currentSlide(index + 1);
@@ -678,7 +678,7 @@ function adjustPosition() {
 	var prevDiv = currentSlide.querySelector('.prev');
 	var nextDiv = currentSlide.querySelector('.next');
 
-    // Kiểm tra xem ảnh đã tải hoàn toàn chưa
+   
     if (imgElement.complete) {
       var modalWidth = currentSlide.clientWidth; // Lấy chiều rộng của phần tử mySlides (modal)
       var modalHeight = currentSlide.clientHeight; // Lấy chiều cao của phần tử mySlides (modal)
