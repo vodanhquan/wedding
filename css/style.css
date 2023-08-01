@@ -28,6 +28,16 @@ body {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
+/* Hiển thị khi preload hoàn tất */
+#fh5co-full {
+  display: block;
+}
+
+/* Ẩn khi bấm vào nút scroll__icon */
+#fh5co-full.hidden {
+  display: none;
+}
+
 .fh5co-full {
     background-size: cover;
     background-position: center;
@@ -262,6 +272,7 @@ h1, h2, h3, h4, h5, h6, figure {
     position: fixed;
     z-index: 99999;
 }
+
 ::selection {
   color: #fff;
   background: #F14E95;
@@ -2282,4 +2293,123 @@ img.hover-shadow {
     100% {
         stroke-dashoffset: 3100
     }
+}
+
+/* CSS cho Slide Show */
+#home {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    /* Add background color or image for the slide show here */
+}
+
+.fh5co-slides {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.fh5co-slides .overlay {
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.fh5co-slide {
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	animation: fadeInOut 12s infinite;
+}
+
+@keyframes fadeInOut {
+	0%, 100% {
+		opacity: 0;
+		z-index: -1;
+	}
+
+	20%, 80% {
+		opacity: 1;
+		z-index: 0;
+	}
+}
+
+/* Container CSS */
+.fh5co-slides .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	color: #fff;
+	font-family: Arial, sans-serif;
+	position: relative;
+	z-index: 2;
+}
+
+.text-slides {
+	padding-top: 100px;
+    color: #fff;
+    margin-bottom: -8em;
+	text-align: center;
+	position: absolute;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+	font-family: Arial, sans-serif;
+	z-index: 2;
+}
+.text-slides img {
+    max-width: 80px;
+}
+.text-slides h1{
+	font-size: 35px;
+	margin: -10px;
+    padding-top: 0px;
+    color: white;
+	margin-bottom: 0px;
+    font-family: "Passions Conflict", Arial, serif;
+	font-weight: normal;
+}
+.text-slides h2{
+	font-size: 80px;
+	margin: -10px;
+    padding: 0;
+    color: white;
+	margin-bottom: 0px;
+    font-family: "Passions Conflict", Arial, serif;
+	font-weight: normal;
+}
+.text-slides h3{
+	font-size: 25px;
+	margin: -40px;
+    padding: 0;
+    color: white;
+	margin-bottom: 0px;
+    font-family: "Cookie",cursive;
+	font-weight: normal;
+}
+
+
+/* CSS cho phần couple */
+#couple {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    z-index: 2;
+	padding: 3em 0;
 }

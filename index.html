@@ -39,7 +39,7 @@
 
 	</head>
 	<body>
-	<div id="preloader" style="display: block">
+	<div id="preloader">
         <div class="loading-heart">
             <svg viewBox="0 0 520 520" width="100">
                 <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path>
@@ -51,35 +51,30 @@
             </div>
         </div>
     </div>
-	<div id="fh5co-full" class="fh5co-fulll" style="display: none">
-		<div id="fh5co-header" class="fh5co-cover fh5co-full" role="banner" style="background-image:url(images/background.webp)"; data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="fh5co-container container">
-				<div class="row css-nhan">
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<img src="images/nhan.png">
-						<h1>The Wedding of</h1>
-						<h2>Quân &amp; Diễn</h2>
-						<h3>We Are Getting Married</h3>
-					</div>
-				</div>
-			
-                <div class= "css-mwmrgg">
-                    <section id="scroll" class="scroll__icon">
-                        <a href='#fh5co-couple'><div class="button">
-                            <span id="scroll-button" ></span></div></a>
-                        <div>
-                            <span class="text">Cuộn xuống để xem tiếp nè!</span>
-                        </div>
-
-                    </section>
-                </div>
-
+	<div id="home" class="fh5co-slides">
+        <div class="fh5co-slide" style="background-image:url(images/img_bg_1.jpg);"></div>
+        <div class="fh5co-slide" style="background-image:url(images/img_bg_2.jpg);"></div>
+		<div class="overlay"></div>
+		<div class="container row css-nhan">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<img src="images/nhan.png">
+				<h1>The Wedding of</h1>
+				<h2>Quân &amp; Diễn</h2>
+				<h3>We Are Getting Married</h3>
 			</div>
+		</div>
+		<div class= "css-mwmrgg">
+			<section id="scroll" class="scroll__icon">
+				<a href="javascript:void(0);"><div class="button">
+					<span id="scroll-button" ></span></div></a>
+				<div>
+					<span class="text">Cuộn xuống để xem tiếp nè!</span>
+				</div>
+			</section>
+		</div>
 	</div>
-	</div>
-	<div id="fh5co-couple">
-		<div class="container">
+	<div id ="couple" class="fh5co-couple">
+		<div class="fh5co-couple container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Hello!</h2>
@@ -172,7 +167,7 @@
 										<span>Chủ Nhật</span>
 										<span>05-03-2023</span>
 									</div>
-									<p>Được Tổ Chức Tại Trung Tâm Hội Nghị & Tiệc Cưới Le Jardin <br>
+									<p>Được Tổ Chức Tại Trung Tâm Hội Nghị & Tiệc Cưới Le Jardin,<br>TPHCM.<br>
 									Sự Hiện Diện Của Quý Khách Là Niềm Vinh Hạnh Của Gia Đình Chúng Tôi.
 									<br>Rất Vinh Dự Được Đón Tiếp.</p>
 								</div>
@@ -735,15 +730,43 @@ function adjustPosition() {
   }
 }
 
-		// Ẩn preloader khi tất cả tài nguyên trên trang đã tải hoàn toàn
-        window.addEventListener("load", function() {
-            document.getElementById("preloader").style.display = "none";
-			document.getElementById("fh5co-full").style.display = "block";
-        });
-		setTimeout(function() {
-		  document.getElementById('preloader').style.display = 'none';
-		}, 3000); // Hiển thị preload trong 15 giây trước khi tự động ẩn
+    window.addEventListener("load", function () {
+      // Ẩn preload và hiển thị trang sau khi preload
+      document.getElementById("preloader").style.display = "none";
+      document.getElementById("home").style.display = "block";
+    });
 
+    setTimeout(function () {
+      document.getElementById('preloader').style.display = 'none';
+    }, 3000);
+	
+	
+	// Khi người dùng bấm vào nút scroll__icon
+	document.getElementById("scroll-button").addEventListener("click", function(event) {
+	  // Ngăn chặn hành vi mặc định của nút (tránh chuyển trang)
+	  event.preventDefault();
+	  
+	  // Thực hiện chuyển trang tại đây (ví dụ: chuyển đến trang có ID là "fh5co-couple")
+	  window.location.href = "#couple";
+	});
+	
+	// JavaScript for Slide Show
+        let slideIndexx = 0;
+        showSlidesx();
+
+        function showSlidesx() {
+            let slides = document.getElementsByClassName("fh5co-slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndexx++;
+            if (slideIndex > slides.length) {
+                slideIndexx = 1;
+            }
+            slides[slideIndexx - 1].style.display = "block";
+            setTimeout(showSlidesx, 2000); // Thay đổi slide sau mỗi 5 giây (5000 ms)
+        }
+		
 	</script>
 	</body>
 </html>
