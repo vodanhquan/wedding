@@ -63,15 +63,16 @@
 				<h3>We Are Getting Married</h3>
 			</div>
 		</div>
-		<div class= "css-mwmrgg">
-			<section id="scroll" class="scroll__icon">
-				<a href="javascript:void(0);"><div class="button">
-					<span id="scroll-button" ></span></div></a>
-				<div>
-					<span class="text">Cuộn xuống để xem tiếp nè!</span>
-				</div>
-			</section>
-		</div>
+		<div class="css-mwmrgg">
+        <section id="scroll" class="scroll__icon">
+                <div class="button" id="scroll-button">
+                    <span ></span>
+                </div>
+            <div>
+                <span class="text">Cuộn xuống để xem tiếp nè!</span>
+            </div>
+        </section>
+    </div>
 	</div>
 	<div id ="couple" class="fh5co-couple">
 		<div class="fh5co-couple container">
@@ -131,7 +132,7 @@
 										<span>Chủ Nhật</span>
 										<span>29-01-2023</span>
 									</div>
-									<p>Được Tổ Chức Tại NHÀ GÁI <br>Đấu Tranh, Hưng Thủy, Lệ Thủy, Quảng Bình. <br>
+									<p>Được Tổ Chức Tại NHÀ GÁI <br>Đấu Tranh, Hưng Thủy, Lệ Thủy, <br> Quảng Bình. <br>
 									Sự Hiện Diện Của Quý Khách Là Niềm Vinh Hạnh Của Gia Đình Chúng Tôi.
 									<br>Rất Vinh Dự Được Đón Tiếp.</p>
 								</div>
@@ -323,7 +324,7 @@
 					  <div class="column">
 						<div class="square-image">
 						  <img src="images/bh/image_bh5.webp" alt="" title="Báo Hỷ" onclick="openModalWithImages('bh')" class="hover-shadow cursor">
-						  <div class="textImg"><i>Báo Hỷ<br> xx Ảnh</i></div>
+						  <div class="textImg"><i>Báo Hỷ<br> 36 Ảnh</i></div>
 						</div>
 					  </div>
 					</div>
@@ -432,19 +433,10 @@
 	});
 
     var controlBtn = document.getElementById('play-pause');
-    var scrollBtn = document.getElementById('scroll-button');
-    scrollBtn.addEventListener('click', scrollFunction);
-    function scrollFunction()
-    {
-        document.getElementById('fh5co-full').style.position = 'relative';
-        document.getElementById('track').play();
-        controlBtn.className = "pause";
-        document.removeEventListener('click', scrollFunction);
-    }
 	function scrollWin() {
         document.getElementById('fh5co-couple').scrollTop -= 10;
 	}
-    // JavaScript code
+	
     function openModal() {
       document.getElementById("myModal").style.display = "block";
       document.getElementsByTagName("body")[0].style.overflow = "hidden";
@@ -772,7 +764,7 @@ function adjustPosition() {
 }
 
     window.addEventListener("load", function () {
-      // Ẩn preload và hiển thị trang sau khi preload
+    // Ẩn preload và hiển thị trang sau khi preload
       document.getElementById("preloader").style.display = "none";
       document.getElementById("home").style.display = "block";
     });
@@ -782,32 +774,43 @@ function adjustPosition() {
     }, 3000);
 	
 	
-	// Khi người dùng bấm vào nút scroll__icon
-	document.getElementById("scroll-button").addEventListener("click", function(event) {
-	  // Ngăn chặn hành vi mặc định của nút (tránh chuyển trang)
-	  event.preventDefault();
-	  
-	  // Thực hiện chuyển trang tại đây (ví dụ: chuyển đến trang có ID là "fh5co-couple")
-	  window.location.href = "#couple";
-	});
-	
 	// JavaScript for Slide Show
-        let slideIndexx = 0;
-        showSlidesx();
+	let indexSlide = 0;
+	slidesShow();
 
-        function showSlidesx() {
-            let slides = document.getElementsByClassName("fh5co-slide");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndexx++;
-            if (slideIndex > slides.length) {
-                slideIndexx = 1;
-            }
-            slides[slideIndexx - 1].style.display = "block";
-            setTimeout(showSlidesx, 2000); // Thay đổi slide sau mỗi 5 giây (5000 ms)
-        }
-		
+	function slidesShow() {
+		let slides = document.getElementsByClassName("fh5co-slide");
+		for (let i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		indexSlide++;
+		if (indexSlide > slides.length) {
+			indexSlide = 1;
+		}
+		slides[indexSlide - 1].style.display = "block";
+		setTimeout(slidesShow, 2000); // Thay đổi slide sau mỗi 5 giây (5000 ms)
+	}
+	
+	document.getElementById("scroll-button").addEventListener("click", scrollToContent);
+
+    function scrollToContent(event) {
+        event.preventDefault();
+        document.getElementById('couple').scrollIntoView({ behavior: 'smooth' });
+
+        // Sau khi nhấp vào nút "scroll-button", cho phép cuộn trang bằng lăn chuột và lướt trên điện thoại
+        window.removeEventListener("wheel", preventScroll, { passive: false });
+        window.removeEventListener("touchmove", preventScroll, { passive: false });
+    }
+
+    // Ngăn chặn cuộn trang bằng lăn chuột và lướt trên điện thoại mặc định
+    function preventScroll(event) {
+        event.preventDefault();
+    }
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+	
+	
 	</script>
 	</body>
 </html>
