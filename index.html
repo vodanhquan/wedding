@@ -432,9 +432,18 @@
 	controlBtn.className = "play";
 	});
 
+    var scrollBtn = document.getElementById('scroll-button');
+    scrollBtn.addEventListener('click', scrollFunction);
+    function scrollFunction()
+    {
+        document.getElementById('home').style.position = 'relative';
+        document.getElementById('track').play();
+        controlBtn.className = "pause";
+        document.removeEventListener('click', scrollFunction);
+    }
     var controlBtn = document.getElementById('play-pause');
 	function scrollWin() {
-        document.getElementById('fh5co-couple').scrollTop -= 10;
+        document.getElementById('couple').scrollTop -= 10;
 	}
 	
     function openModal() {
