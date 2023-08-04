@@ -497,6 +497,9 @@
     function openModalWithImages(imageType) {
       var imagePaths = [];
 
+	  // Reset slideIndex về 1 mỗi khi chọn imageType mới
+	  slideIndex = 1;
+  
       if (imageType === 'dh') {
         imagePaths = [
           "images/dh/image_dh0.webp",
@@ -709,6 +712,7 @@
           // Thêm các đường dẫn ảnh khác vào đây
         ];		
 		}
+		
       var slidesContainer = document.querySelector(".slides-container");
       slidesContainer.innerHTML = "";
 
